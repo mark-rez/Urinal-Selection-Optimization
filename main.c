@@ -17,9 +17,13 @@ int find_best_position(int row[], int size) {
         // Check left and right neighbors
         for (int direction = -1; direction <= 1; direction += 2) {
             int current = i + direction;
+
+            if (row[current] && current >= 0 && current < size) {
+                neighbor_count++;
+            }
+
             while (current >= 0 && current < size) {
                 if (row[current]) {
-                    neighbor_count++;
                     int distance = (current - i) * direction;
                     if (distance < nearest_distance) {
                         nearest_distance = distance;
