@@ -37,7 +37,7 @@ int find_best_position(int row[], int size) {
         // Update the best position based on criteria
         if (nearest_distance > max_distance || 
             (nearest_distance == max_distance && neighbor_count < min_neighbors) || 
-            (nearest_distance == max_distance && neighbor_count == min_neighbors && abs(i - size/2) > abs(best_index - size/2))) {
+            (nearest_distance == max_distance && neighbor_count == min_neighbors && abs(i + 1 - size % 2 - size/2) > abs(best_index + 1 - size % 2 - size/2))) {
             max_distance = nearest_distance;
             min_neighbors = neighbor_count;
             best_index = i;
